@@ -1,2 +1,2 @@
 # react-mobx-template
-基于 react + mobx 的空白项目模板
+基于 react + mobx + antd 的空白项目模板
