@@ -36,6 +36,7 @@ if (contentType === 'form') {
         // data 是请求主体中需要传递给服务器的内容（对象）
         if (typeof data === 'object') {
             let str = ``;
+
             Object.keys(data).forEach((attr) => {
                 if (data[attr]) {
                     str += `${attr}=${data[attr]}&`;
@@ -59,9 +60,7 @@ axios.interceptors.request.use((config) => {
     return Promise.reject(error);
 });
 
-const successHandler = (response) => {
-    return response.data;
-};
+const successHandler = (response) => response.data;
 
 const errorHandler = (error) => {
     const {response = {}} = error;

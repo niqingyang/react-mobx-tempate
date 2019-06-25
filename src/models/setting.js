@@ -1,5 +1,5 @@
-import {observable, action} from "mobx";
-import {namespace} from "mobx-react-stores";
+import {observable, action} from 'mobx';
+import {namespace} from 'mobx-react-stores';
 
 @namespace
 class Setting {

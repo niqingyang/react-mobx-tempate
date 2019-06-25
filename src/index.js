@@ -18,7 +18,7 @@ app.renderCallback = (children) => {
 
     const {locale} = app.stores;
 
-    const antd = get(app.stores, 'locale.translation.antd', undefined);
+    const antd = get(app.stores, 'locale.translation.antd', false);
 
     if (antd) {
         return (

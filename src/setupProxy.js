@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require('path');
 const proxy = require('http-proxy-middleware');
 const paths = require('../config/paths');
 
@@ -10,5 +10,5 @@ module.exports = function (app) {
         path.join(paths.appPath, 'mock')
     ];
 
-    app.use(require("@acme-top/express-mock-middleware").createMiddleware(mockPaths));
+    app.use(require('@acme-top/express-mock-middleware').createMiddleware(mockPaths));
 };

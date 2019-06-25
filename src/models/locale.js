@@ -1,8 +1,8 @@
-import {action, computed, observable, trace} from "mobx";
+import {action, computed, observable} from 'mobx';
 import invariant from 'invariant';
 import {namespace} from 'mobx-react-stores';
 
-const LOCALE = "locale";
+const LOCALE = 'locale';
 
 @namespace
 class Locale {
@@ -15,8 +15,9 @@ class Locale {
 
         this.translations = translations
 
-        if (typeof localStorage !== "undefined") {
+        if (typeof localStorage !== 'undefined') {
             const storedLocale = localStorage.getItem(LOCALE)
+
             if (translations && storedLocale && storedLocale in translations) {
                 this.lang = storedLocale;
             } else {
@@ -25,7 +26,7 @@ class Locale {
         } else {
             this.lang = defaultLang;
         }
-    };
+    }
 
     @action
     change = (lang) => {
@@ -38,7 +39,7 @@ class Locale {
 
         if (this.translations && lang in this.translations) {
             this.lang = lang;
-            if (typeof localStorage !== "undefined") {
+            if (typeof localStorage !== 'undefined') {
                 localStorage.setItem(LOCALE, this.lang);
             }
             return true;
