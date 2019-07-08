@@ -16,7 +16,7 @@
     "babel-plugin-react-css-modules": "^5.2.6",
     "babel-preset-react-app": "^9.0.0",
     "camelcase": "^5.2.0",
-    "caniuse-lite": "^1.0.30000974",
+    "caniuse-lite": "^1.0.30000976",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
     "classnames": "^2.2.6",
     "core-js": "^3.1.4",
@@ -98,8 +98,10 @@
   "scripts": {
     "dll": "webpack --config config/webpack.dll.config",
     "start": "node scripts/start.js",
+    "start:no-mock": "node scripts/start.js --MOCK=none",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "generateMock": "node scripts/generateMock"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -203,7 +205,7 @@
     ]
   },
   "devDependencies": {
-    "@acme-top/express-mock-middleware": "^1.0.2",
+    "@acme-top/express-mock-middleware": "^1.0.3",
     "@babel/core": "7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-decorators": "^7.4.4",

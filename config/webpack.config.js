@@ -83,7 +83,7 @@ const getCSSModuleLocalIdent = (context, localIdentName, localName) => {
             .split('/')
             .map(a => a.replace(/([A-Z])/g, '-$1'))
             .map(a => a.toLowerCase());
-        return `antd-pro${arr.join('-')}-${localName}`.replace(/--/g, '-');
+        return `szy-${arr.join('-')}-${localName}`.replace(/--/g, '-');
     }
     return localName;
 }
@@ -103,9 +103,7 @@ module.exports = function (webpackEnv) {
     // Webpack uses `publicPath` to determine where the app is being served from.
     // It requires a trailing slash, or the file assets will get an incorrect path.
     // In development, we always serve from the root. This makes config easier.
-    const publicPath = isEnvProduction
-        ? paths.servedPath
-        : isEnvDevelopment && '/';
+    const publicPath = isEnvProduction ? paths.servedPath : isEnvDevelopment && '/';
     // Some apps do not use client-side routing with pushState.
     // For these, "homepage" can be set to "." to enable relative asset paths.
     const shouldUseRelativeAssetPaths = publicPath === './';
@@ -221,8 +219,7 @@ module.exports = function (webpackEnv) {
             // Point sourcemap entries to original disk location (format as URL on Windows)
             devtoolModuleFilenameTemplate: isEnvProduction
                 ? info =>
-                    path
-                        .relative(paths.appSrc, info.absoluteResourcePath)
+                    path.relative(paths.appSrc, info.absoluteResourcePath)
                         .replace(/\\/g, '/')
                 : isEnvDevelopment &&
                 (info => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')),
@@ -409,7 +406,7 @@ module.exports = function (webpackEnv) {
                                     ],
                                     // https://www.jianshu.com/p/775fe5ba5d6e
                                     [
-                                        "import",
+                                        'import',
                                         {
                                             libraryName: 'antd',
                                             libraryDirectory: 'es',
@@ -718,7 +715,7 @@ module.exports = function (webpackEnv) {
                 stylesDir,
                 varFile: path.join(paths.appPath, '/node_modules/antd/lib/style/themes/default.less'),
                 mainLessFile: outFile, // themeVariables: ['@primary-color'],
-                indexFileName: 'index.html',
+                indexFileName: 'MainSection.js.html',
                 generateOne: true,
                 lessUrl: 'https://gw.alipayobjects.com/os/lib/less.js/3.8.1/less.min.js'
             }),
@@ -732,7 +729,7 @@ module.exports = function (webpackEnv) {
             fs: 'empty',
             http2: 'empty',
             net: 'empty',
-      	    tls: 'empty',
+            tls: 'empty',
             child_process: 'empty',
         },
         // Turn off performance processing because we utilize
