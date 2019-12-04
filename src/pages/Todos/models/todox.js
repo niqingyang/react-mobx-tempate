@@ -3,7 +3,7 @@ import {action, observable} from 'mobx';
 import {message} from 'antd';
 import {fetchList, add, del, edit, complete, completeAll, clearCompleted} from '@/services/todos';
 
-@namespace
+@namespace('todos')
 class Todos {
 
     @observable

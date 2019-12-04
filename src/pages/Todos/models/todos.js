@@ -1,11 +1,15 @@
 import {namespace, loading} from 'mobx-react-stores';
 import {action, observable} from 'mobx';
 
-@namespace
+@namespace('todos')
 class Todos {
 
     @observable
     list = []
+
+    fetchList = async () => {
+        return this.list;
+    }
 
     findOne = (id) => {
         return this.list.find((todo) => todo.id === id);
